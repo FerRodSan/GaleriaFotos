@@ -11,4 +11,20 @@
   <p>
     If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
   </p>
+
+  <button ion-button (click)="takePhoto()" full color="primary">Hacer Foto</button>
+  <button ion-button (click)="getImage()" full color="secondary">Abrir Foto</button>
+  <button ion-button (click)="cropImage()" full color="danger">Cortar Imagen</button>
+  <p><img src="{{ myphoto }}"></p>
+
+
+  <button ion-button (click)="fetchPhotos()" full color="primary">Abrir Galeria</button>
+  <ion-list>
+    <button ion-item *ngFor="let libraryItem of library" (click)="itemTapped($event, libraryItem)">
+      <img [src]="libraryItem.thumbnailURL | cdvphotolibrary">
+    </button>
+  </ion-list>
+
+
+
 </ion-content>
